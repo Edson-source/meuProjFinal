@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastre-se</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="sign-up-form">
+    <img src="{% static 'img/user-Icon.png' %}">
+    <h1>Cadastre-se</h1>
+    <form name="form_cadastro" id="form_cadastro" action="{% if db %} /update/{{db.id}}/ {% else %} /create/ {% endif %}" method="post">
+      {% csrf_token %}
+      <!--  
+      Caixas de inserção dentro da box do css
+      <div class="input-box mt-4">Username: {{formu.username}}</div>
+      <div class="input-box mt-4">Email: {{formu.email}}</div>
+      <div class="input-box mt-4 pb-2">Senha: {{formu.senha}}</div>
+      -->
+
+      <!--
+        Forma mais bonita visualmente
+      <input type="username" class="input-box" placeholder="Seu Nome">
+      <input type="email" class="input-box" placeholder="Seu Email">
+      <input type="password" class="input-box" placeholder="Sua Senha">
+      -->
+      <!--
+    -->
+
+      <label for="username">Seu Nome</label>
+      <input type="username" class="input-box" {{formu.username}}
+      <label for="email">Seu Email</label>
+      <input type="email" class="input-box" {{formu.email}}
+      <label for="password">Sua Senha</label>
+      <input type="password" class="input-box" {{formu.senha}}
+      
+      
+      <p><span><input type="checkbox"> </span> Eu concordo com os termos de serviço</p>
+      <button type="submit" class="signup-btn">Cadastrar</button>
+      <hr>
+      <p class="or">Ou</p>
+      <button type="button" class="google-btn">Login com o Google</button>
+      <p>Você possui uma conta ? <a href="#">Logar</a></p>
+  </form>
+  </div>
+</body>
+</html>
